@@ -5,9 +5,19 @@ body {
         text-align: center;
         background-color: #f0f0f0;
         padding: 20px;
-      }
-      
-      h1 {
+}
+
+h1 {
         margin-bottom: 20px;
+}
+
+.game-board {
+        display: grid;
+        grid-gap: 10px;
+        justify-content: center;
+        margin-top: 20px;
       }
+
+      
+      
       
