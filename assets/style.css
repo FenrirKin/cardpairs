@@ -1,0 +1,13 @@
+body {
+        font-family: "Bangers", system-ui;
+        font-weight: 400;
+        font-style: normal;
+        text-align: center;
+        background-color: #f0f0f0;
+        padding: 20px;
+      }
+      
+      h1 {
+        margin-bottom: 20px;
+      }
+      
