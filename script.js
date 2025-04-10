@@ -68,21 +68,51 @@ function createBoard() {
         gameBoard.style.gridTemplateColumns = `repeat(${gridSize}, 100px)`;
 }
 
+//Card flipping logic
+function flipCard(event) {
+  if (isGameOver || flippedCards.length === 2) return;
+
+  const card = event.target;
+  if (card.classList.contains('flipped') || matchedCards.includes(card)) return;
+
+  card.classList.add('flipped');
+  card.textContent = card.dataset.value;
+  flippedCards.push(card);
+
+  if (flippedCards.length === 2) {
+    checkMatch();
+  }
+}
+
+//Reset game
+function resetGame() {
+  moves = 0;
+  seconds = 0;
+  minutes = 0;
+  matchedCards = [];
+  flippedCards = [];
+  isGameOver = false;
+  movesElement.textContent = moves;
+  timeElement.textContent = '00:00';
+  createBoard();
+  startTimer();
+}
+
 //Set difficulty
 easyButton.addEventListener('click', () => {
-      gridSize = 4; // Easy: 4x4 grid
-      resetGame();
+  gridSize = 4; // Easy: 4x4 grid
+  resetGame();
 });
       
 mediumButton.addEventListener('click', () => {
-        gridSize = 6; // Medium: 6x6 grid
-        resetGame();
+  gridSize = 6; // Medium: 6x6 grid
+  resetGame();
 });
       
 hardButton.addEventListener('click', () => {
-        gridSize = 8; // Hard: 8x8 grid
-        resetGame();
+  gridSize = 8; // Hard: 8x8 grid
+  resetGame();
 });
       
 // Start the game
-      resetGame();
+  resetGame();
