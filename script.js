@@ -84,6 +84,34 @@ function flipCard(event) {
   }
 }
 
+//Check if flipped cards match
+function checkMatch() {
+  const [cardOne, cardTwo] = flippedCards;
+  moves++;
+  movesElement.textContent = moves;
+
+  if (cardOne.dataset.value === cardTwo.dataset.value) {
+    cardOne.classList.add('matched');
+    cardTwo.classList.add('matched');
+    matchedCards.push(cardOne, cardTwo);
+    flippedCards = [];
+
+    if (matchedCards.length === cards.length) {
+      isGameOver = true;
+      stopTimer();
+      setTimeout(() => alert('You won!'), 500);
+    }
+  } else {
+    setTimeout(() => {
+      cardOne.classList.remove('flipped');
+      cardTwo.classList.remove('flipped');
+      cardOne.textContent = '';
+      cardTwo.textContent = '';
+      flippedCards = [];
+    }, 1000);
+  }
+}
+
 //Reset game
 function resetGame() {
   moves = 0;
