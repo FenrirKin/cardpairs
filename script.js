@@ -15,6 +15,24 @@ let minutes = 0;
 let isGameOver = false;
 let gridSize = 4; // Default to 4x4 (medium)
 
+// Set up the timer
+function startTimer() {
+  timer = setInterval(() => {
+    seconds++;
+    if (seconds === 60) {
+      seconds = 0;
+      minutes++;
+    }
+    timeElement.textContent = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+  }, 1000);
+}
+
+//Stop the timer
+function stopTimer() {
+  clearInterval(timer);
+}
+
+//Shuffle cards
 function shuffle(array) {
         for (let i = array.length - 1; i > 0; i--) {
           const j = Math.floor(Math.random() * (i + 1));
@@ -23,6 +41,7 @@ function shuffle(array) {
         return array;
       }
 
+//Generate cards for board based on grid size
 function generateCards() {
         const numPairs = (gridSize * gridSize) / 2;
         const cardValues = [];
@@ -32,7 +51,7 @@ function generateCards() {
         return shuffle(cardValues);
       }
       
-
+//Create the board
 function createBoard() {
         gameBoard.innerHTML = '';
         const cardValues = generateCards();
