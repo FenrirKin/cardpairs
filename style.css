@@ -18,6 +18,9 @@ h1 {
 }
 
 #difficulty-container {
+        display: grid;
+        grid-gap: 10px;
+        justify-content: center
         margin-bottom: 20px;
 }
 
