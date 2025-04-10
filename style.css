@@ -20,6 +20,18 @@ h1 {
 #difficulty-container {
         margin-bottom: 20px;
 }
+
+#easy-btn {
+        background-color: #2ecc71;
+}
+
+#medium-btn {
+        background-color: #f39c12;
+}
+
+#hard-btn {
+        background-color: #e74c3c;
+}
       
 button {
         margin: 0 10px;
@@ -40,7 +52,7 @@ button:hover {
         margin-bottom: 20px;
 }
 
-.game-board {
+#game-board {
         display: grid;
         grid-gap: 10px;
         justify-content: center;
