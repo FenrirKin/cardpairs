@@ -66,4 +66,23 @@ function createBoard() {
         });
       
         gameBoard.style.gridTemplateColumns = `repeat(${gridSize}, 100px)`;
-      }
+}
+
+//Set difficulty
+easyButton.addEventListener('click', () => {
+      gridSize = 4; // Easy: 4x4 grid
+      resetGame();
+});
+      
+mediumButton.addEventListener('click', () => {
+        gridSize = 6; // Medium: 6x6 grid
+        resetGame();
+});
+      
+hardButton.addEventListener('click', () => {
+        gridSize = 8; // Hard: 8x8 grid
+        resetGame();
+});
+      
+// Start the game
+      resetGame();
